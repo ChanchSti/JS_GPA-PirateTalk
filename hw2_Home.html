@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Homework 2</title>
+      <!-- this is how to attach a src file 
+      <script src="pirateCode.js"> </script>
+      <script src="gpaGrade.js"> </script> -->
+      
+      <style>
+        body {
+         background-image: url('lake.jpg');
+        }
+</style>
+      <p><span id="datetime"></span></p>
+      <script>
+          var dt = new Date();
+        document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
+      </script>
+  </head>
+    
+    <body>   
+        <body style = "text-align: center;">
+            
+            <h1 style="color:darkred"> Use GPA Calculator</h1>
+            <a href="gpa.html"> <button>Click Here</button></a>
+            <p> <br> <br> </p>
+            <h1 style="color:darkblue"> Talk like a Pirate</h1>
+            <a href="pirate.html"> <button>Click Here</button></a>
+            
+            <!--
+        <div class="contact">
+            <ul>
+            <li><a href="gpa.html"> GPA Calculator</a>
+            <li><a href="pirate.html"> Pirate Talk</a></li>
+            </ul>
+        </div>
+            -->
+        </body>
+    </body>
+</html>

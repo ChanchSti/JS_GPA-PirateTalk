@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>  
+    <meta charset="utf-8">
+    <title> GPA Calculator </title>
+</head>
+    
+    <body>
+    <body style = "text-align: center;">
+        
+        <img src="school.png" alt="Be Successful" width="600"
+        height="200">
+        
+        <h1 style = "color:red">
+            Compute your GPA </h1>
+        <h3> Enter your grades below: </h3>
+                  
+            <!-- class "CSC551" -->
+            <!-- grade "A+" -->
+            <!-- hours "3" -->
+        <p>
+        <h4>|&emsp;&emsp;Class&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;Grade&emsp;&emsp;&emsp;| &emsp;&emsp;&emsp;Hours &emsp;&emsp;| </h4>
+        
+        <input id="c1"><input id="g1"><input id="h1"><br>
+        <input id="c2"><input id="g2"><input id="h2"><br>
+        <input id="c3"><input id="g3"><input id="h3"><br>
+        <input id="c4"><input id="g4"><input id="h4"><br>
+        <input id="c5"><input id="g5"><input id="h5"><br>
+        <input id="c6"><input id="g6"><input id="h6">
+        </p>
+        <button id="myBtn">Submit</button>
+        
+        <p id="demo"></p>
+            
+<script>
+var gTotal=0;     var hTotal=0;     var count=0;
+var gPoints=0;
+var g1 = document.getElementById("g1"); var g2 = document.getElementById("g2");
+var g3 = document.getElementById("g3"); var g4 = document.getElementById("g4");
+var g5 = document.getElementById("g5"); var g6 = document.getElementById("g6");
+
+var h1 = document.getElementById("h1"); var h2 = document.getElementById("h2");
+var h3 = document.getElementById("h3"); var h4 = document.getElementById("h4");
+var h5 = document.getElementById("h5"); var h6 = document.getElementById("h6");
+
+var bt = document.getElementById("myBtn");
+    
+bt.addEventListener("click", function() { grades(g1), grades(g2), grades(g3), grades(g4), grades(g5), grades(g6) });
+//bt.addEventListener("click", function() { grades(g2) });
+//bt.addEventListener("click", function() { grades(g3) });
+//bt.addEventListener("click", function() { grades(g4) });
+//bt.addEventListener("click", function() { grades(g5) });
+//bt.addEventListener("click", function() { grades(g6) });
+bt.addEventListener("click", grades);  
+
+    
+function grades(temp) {
+  var x = temp.value; 
+    
+    if(x == "A")
+        {
+           temp.value=4;
+           gTotal += parseFloat(temp.value) || 0;
+           //temp.value=x;
+        }
+    else if(x == "B+")
+        {
+            temp.value=3.5;
+            gTotal += parseFloat(temp.value) || 0;
+        }
+    else if(x == "B")
+        {
+            temp.value=3.0;
+            gTotal += parseFloat(temp.value) || 0;
+        }
+    else if(x == "C+")
+        {
+            temp.value=2.5;
+            gTotal += parseFloat(temp.value) || 0;
+        }
+    else if(x == "C")
+        {
+            temp.value=2.0;
+            gTotal += parseFloat(temp.value) || 0;
+        }
+    else if(x == "D+")
+        {
+            temp.value=1.5;
+            gTotal += parseFloat(temp.value) || 0;
+        }
+    else if(x == "D")
+        {
+            temp.value=1.0;
+            gTotal += parseFloat(temp.value) || 0;
+        }
+    else
+        {
+            temp.value=0;
+            gTotal += parseFloat(temp.value) || 0;
+        }
+    hours(temp.value);
+}
+    
+function hours(key) {
+    var x1 = parseFloat(h1.value) || 0;  var x2 = parseFloat(h2.value) || 0;  
+    var x3 = parseFloat(h3.value) || 0;  var x4 = parseFloat(h4.value) || 0;  
+    var x5 = parseFloat(h5.value) || 0;  var x6 = parseFloat(h6.value) || 0;
+    
+    if(count==0)
+        gPoints += (key * x1)
+    else if (count==1)
+        gPoints += (key * x2)
+    else if (count==2)
+        gPoints += (key * x3)
+    else if (count==3)
+        gPoints += (key * x4)
+    else if (count==4)
+        gPoints += (key * x5)
+    else
+        gPoints += (key * x6)
+    
+    if(count==6)
+        {
+            hTotal = x1+x2+x3+x4+x5+x6;
+            document.write("Total grade points = " + gPoints + '<br>');
+            gPoints = (gPoints/hTotal);
+            document.write("Number of hours = " + hTotal + '<br>');
+            document.write("GPA = " + gPoints + '<br>');
+            alert("GPA: " + gPoints);
+        }
+    count++;
+}
+                        
+</script>
+    </body>
+</html>
